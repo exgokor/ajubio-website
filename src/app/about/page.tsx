@@ -1,4 +1,5 @@
 import { Target, Eye, Heart, Award } from "lucide-react";
+import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,32 +8,51 @@ export const metadata: Metadata = {
 };
 
 const history = [
-  { year: "2024", event: "아주바이오 법인 설립" },
-  { year: "2024", event: "전문의약품 판매대행 사업 개시" },
-  { year: "2025", event: "주요 제약사 파트너십 체결" },
-  { year: "2025", event: "영업 인력 확대 및 전국 네트워크 구축" },
+  { year: "2023", event: "아주바이오 법인 설립" },
+  {
+    year: "2024",
+    event: "전문의약품 판매대행 사업 개시",
+    partners: 1,
+    collaborators: 46,
+  },
+  {
+    year: "2025",
+    event: "주요 제약사 파트너십 체결",
+    partners: 3,
+    collaborators: 58,
+  },
+  {
+    year: "2025",
+    event: "영업 인력 확대 및 전국 네트워크 구축",
+    partners: 4,
+    collaborators: 83,
+  },
 ];
 
 const values = [
   {
     icon: Target,
     title: "전문성",
-    description: "의약품 시장에 대한 깊은 이해와 전문 역량을 바탕으로 최적의 솔루션을 제공합니다.",
+    description:
+      "의약품 시장에 대한 깊은 이해와 전문 역량을 바탕으로 최적의 솔루션을 제공합니다.",
   },
   {
     icon: Eye,
     title: "투명성",
-    description: "파트너사와의 투명한 소통과 정직한 경영을 통해 신뢰를 쌓아갑니다.",
+    description:
+      "파트너사와의 투명한 소통과 정직한 경영을 통해 신뢰를 쌓아갑니다.",
   },
   {
     icon: Heart,
     title: "책임감",
-    description: "환자의 건강과 제약산업의 발전에 기여하는 책임 있는 기업이 되겠습니다.",
+    description:
+      "환자의 건강과 제약산업의 발전에 기여하는 책임 있는 기업이 되겠습니다.",
   },
   {
     icon: Award,
     title: "성과",
-    description: "데이터 기반의 영업 전략으로 파트너사의 목표 달성을 지원합니다.",
+    description:
+      "데이터 기반의 영업 전략으로 파트너사의 목표 달성을 지원합니다.",
   },
 ];
 
@@ -40,10 +60,18 @@ export default function AboutPage() {
   return (
     <>
       {/* Page Header */}
-      <section className="bg-primary-light py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-dark">회사소개</h1>
-          <p className="mt-2 text-gray-600 text-lg">아주바이오를 소개합니다</p>
+      <section className="relative py-24 overflow-hidden">
+        <Image
+          src="/images/hero/hero-1.png"
+          alt="아주바이오 회사소개"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-dark/60" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl font-bold text-white">회사소개</h1>
+          <p className="mt-2 text-white/80 text-lg">아주바이오를 소개합니다</p>
         </div>
       </section>
 
@@ -57,21 +85,29 @@ export default function AboutPage() {
                 안녕하십니까, 아주바이오 대표이사입니다.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
-                아주바이오는 전문의약품 판매대행 전문 법인CSO로서,
-                제약회사와 의료 현장을 잇는 가교 역할을 수행하고 있습니다.
-                풍부한 경험과 전문성을 갖춘 영업 인력을 바탕으로,
-                파트너사의 제품이 환자에게 올바르게 전달될 수 있도록 최선을 다하고 있습니다.
+                아주바이오는 전문의약품 판매대행 전문 법인CSO로서, 제약회사와
+                의료 현장을 잇는 가교 역할을 수행하고 있습니다. 풍부한 경험과
+                전문성을 갖춘 영업 인력을 바탕으로, 파트너사의 제품이 환자에게
+                올바르게 전달될 수 있도록 최선을 다하고 있습니다.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">
-                빠르게 변화하는 제약 환경 속에서 데이터 기반의 과학적 영업 활동과
-                윤리적 경영을 실천하며, 지속 가능한 성장을 추구하겠습니다.
+                빠르게 변화하는 제약 환경 속에서 데이터 기반의 과학적 영업
+                활동과 윤리적 경영을 실천하며, 지속 가능한 성장을
+                추구하겠습니다.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 아주바이오와 함께 새로운 가치를 만들어 가시길 바랍니다.
               </p>
-              <p className="mt-6 font-semibold text-dark">
-                아주바이오 대표이사
-              </p>
+              <div className="mt-8 flex items-center gap-4">
+                <p className="font-semibold text-dark">아주바이오 대표이사</p>
+                <Image
+                  src="/images/about/ceo_signature.png"
+                  alt="대표이사 서명"
+                  width={96}
+                  height={36}
+                  className="object-contain"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -80,20 +116,22 @@ export default function AboutPage() {
       {/* Vision & Mission */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-dark text-center mb-12">비전 & 미션</h2>
+          <h2 className="text-3xl font-bold text-dark text-center mb-12">
+            비전 & 미션
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="bg-white rounded-xl p-8 shadow-sm">
               <h3 className="text-xl font-bold text-primary mb-4">VISION</h3>
               <p className="text-gray-700 leading-relaxed">
-                대한민국 No.1 전문의약품 판매대행 기업으로서,
-                제약산업의 혁신과 발전을 선도합니다.
+                대한민국 No.1 전문의약품 판매대행 기업으로서, 제약산업의 혁신과
+                발전을 선도합니다.
               </p>
             </div>
             <div className="bg-white rounded-xl p-8 shadow-sm">
               <h3 className="text-xl font-bold text-primary mb-4">MISSION</h3>
               <p className="text-gray-700 leading-relaxed">
-                전문성과 신뢰를 바탕으로 제약회사와 의료 현장을 연결하여,
-                환자의 건강한 삶에 기여합니다.
+                전문성과 신뢰를 바탕으로 제약회사와 의료 현장을 연결하여, 환자의
+                건강한 삶에 기여합니다.
               </p>
             </div>
           </div>
@@ -103,15 +141,21 @@ export default function AboutPage() {
       {/* Core Values */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-dark text-center mb-12">핵심 가치</h2>
+          <h2 className="text-3xl font-bold text-dark text-center mb-12">
+            핵심 가치
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value) => (
               <div key={value.title} className="text-center">
                 <div className="w-16 h-16 bg-primary-light rounded-full flex items-center justify-center mx-auto mb-4">
                   <value.icon size={28} className="text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold text-dark mb-2">{value.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{value.description}</p>
+                <h3 className="text-lg font-semibold text-dark mb-2">
+                  {value.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {value.description}
+                </p>
               </div>
             ))}
           </div>
@@ -121,7 +165,9 @@ export default function AboutPage() {
       {/* History */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-dark text-center mb-12">연혁</h2>
+          <h2 className="text-3xl font-bold text-dark text-center mb-12">
+            연혁
+          </h2>
           <div className="max-w-2xl mx-auto">
             {history.map((item, index) => (
               <div key={index} className="flex gap-6 mb-8 last:mb-0">
@@ -134,6 +180,20 @@ export default function AboutPage() {
                 <div className="pb-8">
                   <span className="text-primary font-bold">{item.year}</span>
                   <p className="text-gray-700 mt-1">{item.event}</p>
+                  {(item.partners || item.collaborators) && (
+                    <div className="flex gap-4 mt-2">
+                      {item.partners && (
+                        <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">
+                          파트너 제약사 {item.partners}곳
+                        </span>
+                      )}
+                      {item.collaborators && (
+                        <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">
+                          협력사 {item.collaborators}곳
+                        </span>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
